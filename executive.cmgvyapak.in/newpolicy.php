@@ -69,14 +69,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="newpolicy.php">
-                            <i class='bx bx-id-card icon' ></i>
-                            <span class="text nav-text">New Policy</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="UserDetails.php">
+                        <a href="index.php">
                             <i class='bx bxs-user-detail icon'></i>
                             <span class="text nav-text">User Details</span>
                         </a>

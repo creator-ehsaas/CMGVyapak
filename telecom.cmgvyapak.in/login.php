@@ -2,11 +2,11 @@
 $login = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    include '../components/_dbconnect.php';
+    include 'components/_dbconnect.php';
     $username = $_POST["username"];
     $password = $_POST["password"]; 
     
-    $sql = "Select * from tc_login where username='$username'";
+    $sql = "Select * from telecom where username='$username'";
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
     if ($num == 1){
@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
-                header("location: UserDetails.php");
+                header("location: index.php");
             }   
             else{
                 $showError = "Invalid Credentials 1 $username and $password";
