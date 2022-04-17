@@ -1,0 +1,38 @@
+.form{
+    border: 3px solid white;
+    width: 50%;
+    height: 80%;
+    color: aliceblue;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 20px;
+    padding: 5%;
+}
+.text{
+    font-size: 180%;
+}
+.inputtext{
+    height: 30px;
+    width: 50%;
+    margin-top: 2%;
+    border: 2px solid white;
+    color: aliceblue;
+    font-size: 100%;
+    padding: 5px;
+    
+}
+.inputtext1{
+    font-size: 100%;
+    color: aliceblue;
+    height: 30px;
+    width: 50%;
+    margin-top: 2%;
+    border: 2px solid white;
+    margin-left: 2%;
+    padding: 5px;
+    
+}
+.btn:hover{
+    background-color: rgb(39, 37, 35);
+    cursor: pointer;
+}
