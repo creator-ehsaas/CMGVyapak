@@ -43,6 +43,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         *{
             background-color: #242526;
         }
+         button{    
+             color: aliceblue;
+             border: 3px solid white;
+             height: 50px;
+             width: 30%;
+             position: relative;
+             left: 27%;
+             font-size: 100%;
+            }
+            @media screen and (max-width:700px) {
+                button{
+                    width:7rem;
+                    margin-left:-1rem;
+
+                    
+                }
+                .form{
+                    border:none;
+                }
+                form h1{
+                    font-size:4rem;
+                }
+                form label{
+                    margin-left:-1rem;
+                }
+                 .inputtext{
+                    width:13rem;
+                }
+                .inputtext1{
+                    width:13rem;    
+                }
+                .form{
+                    width:100vw;
+                }
+                hr{
+                    display:none;
+                }
+                
+            }
     </style>
 </head>
 <body>
@@ -74,13 +113,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="pass"class="text">Password :</label>
                 <input type="password" name="password" class="inputtext1"placeholder="Password" id="password">
                 <br><br><br>
-                <button type="submit" class="btn" style="color: aliceblue;
-border: 3px solid white;
-height: 50px;
-width: 30%;
-position: relative;
-left: 27%;
-font-size: 100%;">Submit</button>    
+                <button type="submit" class="btn">Submit</button>    
             
         </form>
     </div>
