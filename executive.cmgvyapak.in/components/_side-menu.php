@@ -6,7 +6,8 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name"><?php echo $_SESSION['username']?></span>
+                    <span class="name"></span>
+                    <span class="profession">Web developer</span>
                 </div>
             </div>
 
@@ -23,30 +24,23 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="index.php">
+                        <a href="Policy.php">
                             <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <span class="text nav-text">Policy</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="ExecutiveDetails.php">
+                        <a href="newpolicy.php">
                             <i class='bx bx-id-card icon' ></i>
-                            <span class="text nav-text">Executive Details</span>
+                            <span class="text nav-text">New Policy Details</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="CustomerDetails.php">
+                        <a href="UserDetails.php">
                             <i class='bx bxs-user-detail icon'></i>
-                            <span class="text nav-text">Customer Details</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Policy Reminders</span>
+                            <span class="text nav-text">User Details</span>
                         </a>
                     </li>
 
@@ -62,7 +56,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="logout.php">
+                    <a href="#">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>

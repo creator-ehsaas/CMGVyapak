@@ -115,7 +115,7 @@
     </nav>
 
     <section class="home">
-          <form action="" method="post" class="frm">
+          <form action="" method="post" class="form">
               <label for="name">Policy Name</label>
               <input type="text"placeholder="Policy Name"id="name"><br><br>
               <label for="no">Policy Number</label>
