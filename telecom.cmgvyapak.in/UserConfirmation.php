@@ -103,19 +103,19 @@ if(isset($_POST['save']))
                 <br>
         
                 
-                <input type="text" id="cname" name="cname" class="input" placeholder="Full Name"/>
+                <input type="text" id="cname" name="cname" class="input" placeholder="Full Name"require/>
                 <br><br>
         
-                <input type="tel" id="cphone" name="cphone" class="input" placeholder="Mobile Number "/>
+                <input type="tel" id="cphone" name="cphone" class="input" placeholder="Mobile Number "require/>
                 <br><br>
 
-                <input type="email" id="cemail" name="cemail" class="input" placeholder="Email"/>
+                <input type="email" id="cemail" name="cemail" class="input" placeholder="Email"require/>
                 <br><br>
 
-                <input type="text" id="cadd" name="cadd" class="input" placeholder="Address"/>
+                <input type="text" id="cadd" name="cadd" class="input" placeholder="Address"require/>
                 <br><br>
     
-                <input type="text" id="cmeet" name="cmeet" class="input" style="text-transform: capitalize;" placeholder="Agreed For Meeting? Yes/No"/>
+                <input type="text" id="cmeet" name="cmeet" class="input" style="text-transform: capitalize;" placeholder="Agreed For Meeting? Yes/No"require/>
                 <br><br>
 
                <input type="Submit" name="save" class="btn" value="ADD USER" onclick="sendOTP();"/>

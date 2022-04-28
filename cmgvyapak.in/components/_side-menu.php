@@ -22,29 +22,16 @@
                 </li>
 
                 <ul class="menu-links">
+
                     <li class="nav-link">
                         <a href="index.php">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="ExecutiveDetails.php">
-                            <i class='bx bx-id-card icon' ></i>
-                            <span class="text nav-text">Executive Details</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="CustomerDetails.php">
                             <i class='bx bxs-user-detail icon'></i>
                             <span class="text nav-text">Customer Details</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="policyrem.php">
                             <i class='bx bx-bell icon'></i>
                             <span class="text nav-text">Policy Reminders</span>
                         </a>

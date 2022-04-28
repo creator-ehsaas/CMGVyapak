@@ -1,9 +1,10 @@
 <?php
-$username = "cmgvyapa_dbAdmin";
-$password = "Ehsaas@Database18";
-$database = "cmgvyapa_db";
+$servername = "localhost:3307";
+$username = "root";
+$password = "";
+$database = "cmgvyapak";
 
-$conn = mysqli_connect($username, $password, $database);
+$conn = mysqli_connect($servername, $username, $password, $database);
 
 if (!$conn){
     // die("Sorry we failed to connect: ". mysqli_connect_error());

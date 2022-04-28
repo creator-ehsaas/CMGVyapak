@@ -53,7 +53,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
             margin-left: 2rem;
             width: 15rem
         }
-        }
+    }
     </style>
 </head>
 <body>

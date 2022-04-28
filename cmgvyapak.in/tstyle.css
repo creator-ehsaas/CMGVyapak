@@ -346,9 +346,9 @@ body.dark .home .text{
   color: #9DBFAF;
 }
 
-/* .searchTerm:focus{
-  color: #00B4CC;
-} */
+.searchTerm:hover{
+  cursor: auto;
+}
 
 .searchButton {
   width: 40px;
@@ -420,7 +420,7 @@ body.dark .home .text{
         border-radius: 5px;
         border: none;
         padding: 20px;
-        margin-left: 30%;
+        /* margin-left: 30%; */
     }
     .form{
         /* width: 100vw;
@@ -464,4 +464,3 @@ body.dark .home .text{
     .form{
         border:none;
     }
-}

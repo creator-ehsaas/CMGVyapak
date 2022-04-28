@@ -21,18 +21,21 @@
     padding: 5px;
     
 }
-.inputtext1{
-    font-size: 100%;
-    color: aliceblue;
-    height: 30px;
-    width: 50%;
-    margin-top: 2%;
-    border: 2px solid white;
-    margin-left: 2%;
-    padding: 5px;
-    
-}
+
 .btn:hover{
     background-color: rgb(39, 37, 35);
     cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+
+    .inputtext{
+        height: 30px;
+        width: 15rem;
+        margin-top: 2%;
+        border: 2px solid white;
+        color: aliceblue;
+        font-size: 100%;
+        padding: 5px;
+    }
 }

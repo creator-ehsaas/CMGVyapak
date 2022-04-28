@@ -6,8 +6,7 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name"></span>
-                    <span class="profession">Web developer</span>
+                    <span class="name"><?php echo $_SESSION['username']?> </span>
                 </div>
             </div>
 
@@ -23,24 +22,24 @@
                 </li>
 
                 <ul class="menu-links">
+                <li class="nav-link">
+                        <a href="index.php">
+                            <i class='bx bxs-user-detail icon'></i>
+                            <span class="text nav-text">Customer Details</span>
+                        </a>
+                    </li>
+
                     <li class="nav-link">
                         <a href="Policy.php">
-                            <i class='bx bx-home-alt icon' ></i>
+                        <i class='bx bx-folder-plus icon'></i>
                             <span class="text nav-text">Policy</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="newpolicy.php">
-                            <i class='bx bx-id-card icon' ></i>
-                            <span class="text nav-text">New Policy Details</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="UserDetails.php">
-                            <i class='bx bxs-user-detail icon'></i>
-                            <span class="text nav-text">User Details</span>
+                        <i class='bx bx-id-card icon' ></i>
+                            <span class="text nav-text">Policy Details</span>
                         </a>
                     </li>
 
@@ -56,7 +55,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="logout.php">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>

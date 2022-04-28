@@ -56,30 +56,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 button{
                     width:7rem;
                     margin-left:-1rem;
-
+                    .inputtext{
+        height: 30px;
+        width: 15rem;
+        margin-top: 2%;
+        border: 2px solid white;
+        color: aliceblue;
+        font-size: 100%;
+        padding: 5px;
+    }
                     
                 }
-                .form{
-                    border:none;
-                }
-                form h1{
-                    font-size:4rem;
-                }
-                form label{
-                    margin-left:-1rem;
-                }
-                 .inputtext{
-                    width:13rem;
-                }
-                .inputtext1{
-                    width:13rem;    
-                }
-                .form{
-                    width:100vw;
-                }
-                hr{
-                    display:none;
-                }
+                @media (max-width:700px)  {
+
+.form{
+ border: none;
+ width: 80%;
+ height: 80%;
+ color: aliceblue;
+ margin: auto;
+ margin-top: 5%;
+ border-radius: 20px;
+ padding: 5%;
+}
+.inputtext{
+        height: 30px;
+        width: 15rem;
+        margin-top: 2%;
+        border: 2px solid white;
+        color: aliceblue;
+        font-size: 100%;
+        padding: 5px;
+    }
+}
                 
             }
     </style>
@@ -111,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="UserName"class="text">Username :</label>
                 <input type="text" name="username" placeholder="Enter Username"class="inputtext" id="username"><br><br>
                 <label for="pass"class="text">Password :</label>
-                <input type="password" name="password" class="inputtext1"placeholder="Password" id="password">
+                <input type="password" name="password" class="inputtext"placeholder="Password" id="password">
                 <br><br><br>
                 <button type="submit" class="btn">Submit</button>    
             

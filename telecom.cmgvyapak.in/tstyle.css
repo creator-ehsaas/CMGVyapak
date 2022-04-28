@@ -336,19 +336,15 @@ body.dark .home .text{
 }
 
 .searchTerm {
-  width: 100%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  height: 36px;
-  padding: 15px;
-  border-radius: 5px 0 0 5px;
-  /* outline: none; */
-  color: #9DBFAF;
-}
+    width: 100%;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    height: 36px;
+    padding: 15px;
+    border-radius: 5px 0 0 5px;
+    /* outline: none; */
+    color: #9DBFAF;}
 
-/* .searchTerm:focus{
-  color: #00B4CC;
-} */
 
 .searchButton {
   width: 40px;
@@ -362,7 +358,7 @@ body.dark .home .text{
   font-size: 20px;
 }
 .searchTerm:hover{
-    cursor: wait;
+    cursor: auto;
 }
 
 /*Resize the wrap to see the search bar change!*/
@@ -420,7 +416,7 @@ body.dark .home .text{
         border-radius: 5px;
         border: none;
         padding: 20px;
-        margin-left: -1rem;
+        margin-left: 30%;
     }
     .form{
         /* width: 100vw;

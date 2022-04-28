@@ -1,3 +1,35 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+    header("location: login.php");
+    exit;
+}
+
+include 'components/_dbconnect.php';
+
+
+if(isset($_POST['save']))
+{	 
+	 $cname = $_POST['cname'];
+	 $cemail = $_POST['cemail'];
+	 $cphone = $_POST['cphone'];
+	 $cdd = $_POST['cadd'];
+     $pname = $_POST['pname'];
+     $pamt = $_POST['pamt'];
+     $pcompany = $_POST['pcompany'];
+
+	 $sql = "INSERT INTO policy (cname,cemail,cphone,cadd,pname,pamt,pcompany) VALUES ('$cname','$cemail','$cphone','$cdd', '$pname','$pamt','$pcompany')";
+	 if (mysqli_query($conn, $sql)) {
+		$showAlert = true;
+	 } else {
+		echo "Error: " . $sql . " " . mysqli_error($conn);
+	 }
+
+
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +38,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tstyle.css">
     <link rel="responsive" href="responsive.css">
     
     <!----===== Boxicons CSS ===== -->
@@ -25,106 +57,42 @@
             
     }
     form input, form label{
-        width:89%;
-        margin-left:10%;
-        height:10%;
+        width: 20rem;
+    height: 2rem;
+    margin-left: 10%;
+    padding: 0.5rem;
     }
     @media screen and (max-width:700px) {
-        form{
-            border:none;
-            width:auto;
-            margin:0;
-            margin-top:3%;
-        }
-        input{
-            
-            width:90%;
-        }
-        
+    form{
+        padding: 1rem;
+        width: 100%;
+    border: 2px solid white;
+    margin-left: -2rem;
+    margin-right: 10rem;
     }
+}
     </style>
 </head>
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="harshal.jpg" alt="">
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name">Prathamesh</span>
-                    <span class="profession">Web developer</span>
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="Policy.php">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Policy</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="newpolicy.php">
-                            <i class='bx bx-id-card icon' ></i>
-                            <span class="text nav-text">New Policy Details</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="UserDetails.php">
-                            <i class='bx bxs-user-detail icon'></i>
-                            <span class="text nav-text">User Details</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-contact icon' ></i>
-                            <span class="text nav-text">Contact Us</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-                
-            </div>
-        </div>
-
-    </nav>
+<?php require 'components/_side-menu.php'; ?>
 
     <section class="home">
-          <form action="" method="post" class="form">
+          <form action="Policy.php" method="post" class="form">
+          <label for="name">Customer Name</label>
+              <input type="text"placeholder="Customer Name" name="cname" id="name"require><br><br>
+              <label for="name">Email</label>
+              <input type="email"placeholder="Customer Email"name="cemail"id="name"require><br><br>
+              <label for="name">Phone Number</label>
+              <input type="number"placeholder="Customer Phone Number"name="cphone"id="name"require><br><br>
+              <label for="name">Adderss</label>
+              <input type="text"placeholder="Customer Address"name="cadd"id="name"require><br><br>
               <label for="name">Policy Name</label>
-              <input type="text"placeholder="Policy Name"id="name"><br><br>
-              <label for="no">Policy Number</label>
-              <input type="text"placeholder="Policy Number"id="no"><br><br>
+              <input type="text"placeholder="Policy Number"name="pname"id="no"require><br><br>
               <label for="amount">Enter Policy Amount</label>
-              <input type="number"placeholder="Amount"id="amount"><br><br>
+              <input type="number"placeholder="Amount"id="amount"name="pamt"require><br><br>
               <label for="nm">Enter Policy Company Name</label>
-              <input type="text"placeholder="Company Name"><br><br>
-              <input type="submit" value="Submit">
+              <input type="text"placeholder="Company Name"name="pcompany" require><br><br>
+              <input type="submit" name="save" value="Submit">
 
           </form>
             

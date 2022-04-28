@@ -1,3 +1,43 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+    header("location: login.php");
+    exit;
+}
+
+
+include 'components/_dbconnect.php'; 
+             $sql = "SELECT * FROM policy order by dt desc";
+             $results = $conn->query($sql);
+             while ($row = $results->fetch_assoc()) {
+                 
+                 if(isset($_POST['send'])){
+                    $url = 'https://api2.juvlon.com/v4/httpSendMail';
+                    $data = '{"ApiKey":"OTA5MTUjIyMyMDIyLTA0LTI3IDIyOjAwOjM3",
+                        "requests":
+                              [{
+                                "subject":"Policy Reminder",
+                                "from":"prathamesh@shareskills.in",
+                                "body":"Hello '.$row['cname'].', Your policy is due coming soon. Please pay the policy amount before. Thank you.",
+                                "to": "'.$row["cemail"].'"             
+                              }]
+                            }';
+                    $options = array(
+                           'http' => array(
+                               'header'  => "Content-type: application/json\r\n",
+                               'method'  => 'POST',
+                               'content' => $data
+                                )
+                            );
+                    $context  = stream_context_create($options);
+                    $result = file_get_contents($url, false, $context);
+                    if ($result === FALSE) { echo "Error"; }
+                    print_r($result);
+                }
+             }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,107 +46,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tstyle.css">
     <link rel="responsive" href="responsive.css">
     
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     
-    <title>Dashboard Sidebar Menu</title> 
+    <title>Policy Reminders</title> 
     <style>
-        @media screen and (max-width:700px) {
-            .box{
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-      margin-left: 6%;
-      margin-top: 1%;
-      height: 45%;
-      width: 90%;
-      background-color: white;
-      border-radius: 10px;
-      /* float: left; */
-      display: inline;
-      margin-bottom: 1%;
-  
-  }
-  .home.text{
-        font-size: 133%;
-  }
-            
+         .box{
+            padding: 10px;
+           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+       margin-left: 4%;
+       margin-top: 2%;
+       height: 23rem;
+       width: 20rem;
+       background-color: rgb(255, 255, 255);
+       border-radius: 10px;
+       display: inline;
+       float: left;
+        }
+
+        @media screen and (max-width:700px){
+        .box{
+           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+       margin-left: 11%;
+       margin-top: 2%;
+       height: 23rem;
+        width: 15rem;
+       background-color: rgb(255, 255, 255);
+       border-radius: 10px;
+       display: inline;
+       float: left;
+            }
+
+        .search{
+            margin-left: 2rem;
+            width: 15rem
+        }
         }
     </style>
 </head>
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="harshal.jpg" alt="">
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name">Prathamesh</span>
-                    <span class="profession">Web developer</span>
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="Policy.php">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Policy</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="index.php">
-                            <i class='bx bxs-user-detail icon'></i>
-                            <span class="text nav-text">User Details</span>
-                        </a>
-                    </li>
-
-                   
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-contact icon' ></i>
-                            <span class="text nav-text">Contact Us</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-                
-            </div>
-        </div>
-
-    </nav>
+<?php require 'components/_side-menu.php'; ?>
 
     <section class="home">
-            <div class="text">New Policy Details</div>
-            <a href="policy.php"><div class="box"></div></a>           
-            <a href="policy.php"><div class="box"></div></a>           
-            <a href="policy.php"><div class="box"></div></a>           
-            <a href="policy.php"><div class="box"></div></a>           
-                     
+            <div class="text">Policy Details</div>
+            <?php 
+             include 'components/_dbconnect.php'; 
+             $sql = "SELECT * FROM policy order by dt desc";
+             $result = $conn->query($sql);
+             while ($row = $result->fetch_assoc()) {
+                 echo "<div class='box'>";
+                 echo "<div class='utext'>Name: ".$row["cname"]."</div>";
+                 echo "<div class='utext'>Email: ".$row["cemail"]."</div>";
+                 echo "<div class='utext'>Phone: ".$row["cphone"]."</div>";
+                 echo "<div class='utext'>Address: ".$row["cadd"]."</div>";
+                 echo "<div class='utext'>Policy Name: ".$row["pname"]."</div>";
+                 echo "<div class='utext'>Policy Amount: ".$row["pamt"]."</div>";
+                 echo "<div class='utext'>Company: ".$row["pcompany"]."</div>";
+                 echo "<div class='utext'>Start Date: ".$row["dt"]."</div>";
+                 echo "</form></div>";
+              }
+
+             ?>        
     
         
         

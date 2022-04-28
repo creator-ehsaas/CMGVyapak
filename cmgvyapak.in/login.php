@@ -43,6 +43,54 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         *{
             background-color: #242526;
         }
+         button{    
+             color: aliceblue;
+             border: 3px solid white;
+             height: 50px;
+             width: 30%;
+             position: relative;
+             left: 27%;
+             font-size: 100%;
+            }
+            @media screen and (max-width:700px) {
+                button{
+                    width:7rem;
+                    margin-left:-1rem;
+                    .inputtext{
+        height: 30px;
+        width: 15rem;
+        margin-top: 2%;
+        border: 2px solid white;
+        color: aliceblue;
+        font-size: 100%;
+        padding: 5px;
+    }
+                    
+                }
+                @media (max-width:700px)  {
+
+.form{
+ border: none;
+ width: 80%;
+ height: 80%;
+ color: aliceblue;
+ margin: auto;
+ margin-top: 5%;
+ border-radius: 20px;
+ padding: 5%;
+}
+.inputtext{
+        height: 30px;
+        width: 15rem;
+        margin-top: 2%;
+        border: 2px solid white;
+        color: aliceblue;
+        font-size: 100%;
+        padding: 5px;
+    }
+}
+                
+            }
     </style>
 </head>
 <body>
@@ -72,15 +120,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="UserName"class="text">Username :</label>
                 <input type="text" name="username" placeholder="Enter Username"class="inputtext" id="username"><br><br>
                 <label for="pass"class="text">Password :</label>
-                <input type="password" name="password" class="inputtext1"placeholder="Password" id="password">
+                <input type="password" name="password" class="inputtext"placeholder="Password" id="password">
                 <br><br><br>
-                <button type="submit" class="btn" style="color: aliceblue;
-border: 3px solid white;
-height: 50px;
-width: 30%;
-position: relative;
-left: 27%;
-font-size: 100%;">Submit</button>    
+                <button type="submit" class="btn">Submit</button>    
             
         </form>
     </div>
