@@ -2,7 +2,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="harshal.jpg" alt="">
+                    <img src="logo.png" alt="">
                 </span>
 
                 <div class="text logo-text">
@@ -40,13 +40,6 @@
                         <a href="newpolicy.php">
                         <i class='bx bx-id-card icon' ></i>
                             <span class="text nav-text">Policy Details</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-contact icon' ></i>
-                            <span class="text nav-text">Contact Us</span>
                         </a>
                     </li>
 

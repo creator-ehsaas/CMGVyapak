@@ -10,8 +10,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 include 'components/_dbconnect.php'; 
              $sql = "SELECT * FROM policy";
              $results = $conn->query($sql);
-             while ($row = $results->fetch_assoc()) {
-                 
+             $cemail = $_POST['confemail'];
                  if(isset($_POST['send'])){
                     $url = 'https://api2.juvlon.com/v4/httpSendMail';
                     $data = '{"ApiKey":"OTA5MTUjIyMyMDIyLTA0LTI3IDIyOjAwOjM3",
@@ -19,8 +18,8 @@ include 'components/_dbconnect.php';
                               [{
                                 "subject":"Policy Reminder",
                                 "from":"prathamesh@shareskills.in",
-                                "body":"Hello '.$row['cname'].', Your policy is due coming soon. Please pay the policy amount before. Thank you.",
-                                "to": "'.$row["cemail"].'"             
+                                "body":"Hello, Your policy is due coming soon. Please pay the policy amount before. Thank you.",
+                                "to": "'.$cemail.'"             
                               }]
                             }';
                     $options = array(
@@ -35,21 +34,20 @@ include 'components/_dbconnect.php';
                     if ($result === FALSE) { echo "Error"; }
                     print_r($result);
                 }
-                if(isset($_POST['Sent']))
+             
+
+             if(isset($_POST['Sent']))
              {	 
-               
-                $cemail = $row['cemail'];
+                $cemail = $_POST['confemail'];
                 $edt = $_POST['edt'];
                 $sql1 = "UPDATE policy SET edt = '$edt' WHERE cemail = '$cemail'";
                 if (mysqli_query($conn, $sql1)) {
                     $showAlert = true;
                     echo 'Done!';
-                    echo $row['cemail'];
+                    echo $cemail;
                  } else {
                     echo "Error: " . $sql . " " . mysqli_error($conn);
                  }
-             }
-               
              }
             
              
@@ -78,7 +76,7 @@ include 'components/_dbconnect.php';
            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
        margin-left: 4%;
        margin-top: 2%;
-       height: 30rem;
+       height: 32rem;
        width: 20rem;
        background-color: rgb(255, 255, 255);
        border-radius: 10px;
@@ -91,7 +89,7 @@ include 'components/_dbconnect.php';
            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
        margin-left: 11%;
        margin-top: 2%;
-       height: 30rem;
+       height: 35rem;
         width: 15rem;
        background-color: rgb(255, 255, 255);
        border-radius: 10px;
@@ -126,10 +124,10 @@ include 'components/_dbconnect.php';
                  echo "<div class='utext'>Company: ".$row["pcompany"]."</div>";
                  echo "<div class='utext'>Start Date: ".$row["dt"]."</div>";
                  echo "<div class='utext'>End Date: ".$row["edt"]."</div>";
-                 echo "<form  style='margin-left:0%;'action='policyrem.php' method='post'><input type='text' name='edt' id='edt'>";
-                 echo "<div class='utext'><button type='submit' name='Sent'>Add End Date</button></div>"; 
+                 echo "<form  style='margin-left:0%;'action='policyrem.php' method='post'><input placeholder='Update End-Date' type='text' name='edt' id='edt'>";
+                 echo "<input type='text' name='confemail' id='confemail' style='margin-top:5px' placeholder='Confirm Email' required>";
+                 echo "<div class='utext'><button style='margin:10px; padding:2px;' type='submit' name='Sent'>Add End Date</button><button value='Reminde' type='submit' style='margin:10px; padding:2px;' name='send'>REMIND</button></div>";  
                  echo "<div class='utext'><p id='demo'></p></div>";
-                 echo "<div class='utext'><button value='Reminde' type='submit' name='send'>REMIND</button></div>";                           
                  echo "</form></div>";
               }
 

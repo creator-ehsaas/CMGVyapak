@@ -2,7 +2,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="harshal.jpg" alt="">
+                    <img src="logo.png" alt="">
                 </span>
 
                 <div class="text logo-text">
@@ -36,13 +36,13 @@
                             <span class="text nav-text">Policy Reminders</span>
                         </a>
                     </li>
-
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-contact icon' ></i>
-                            <span class="text nav-text">Contact Us</span>
+                        <a href="addexe.php">
+                        <i class='bx bx-add-to-queue icon'></i>
+                            <span class="text nav-text">Policy Reminders</span>
                         </a>
                     </li>
+    
 
                 </ul>
             </div>

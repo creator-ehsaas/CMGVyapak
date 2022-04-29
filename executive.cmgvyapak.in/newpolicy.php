@@ -6,37 +6,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     exit;
 }
 
-
-include 'components/_dbconnect.php'; 
-             $sql = "SELECT * FROM policy order by dt desc";
-             $results = $conn->query($sql);
-             while ($row = $results->fetch_assoc()) {
-                 
-                 if(isset($_POST['send'])){
-                    $url = 'https://api2.juvlon.com/v4/httpSendMail';
-                    $data = '{"ApiKey":"OTA5MTUjIyMyMDIyLTA0LTI3IDIyOjAwOjM3",
-                        "requests":
-                              [{
-                                "subject":"Policy Reminder",
-                                "from":"prathamesh@shareskills.in",
-                                "body":"Hello '.$row['cname'].', Your policy is due coming soon. Please pay the policy amount before. Thank you.",
-                                "to": "'.$row["cemail"].'"             
-                              }]
-                            }';
-                    $options = array(
-                           'http' => array(
-                               'header'  => "Content-type: application/json\r\n",
-                               'method'  => 'POST',
-                               'content' => $data
-                                )
-                            );
-                    $context  = stream_context_create($options);
-                    $result = file_get_contents($url, false, $context);
-                    if ($result === FALSE) { echo "Error"; }
-                    print_r($result);
-                }
-             }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

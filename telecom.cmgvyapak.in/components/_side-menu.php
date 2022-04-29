@@ -2,7 +2,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="harshal.jpg" alt="logo">
+                    <img src="logo.png" alt="logo">
                 </span>
 
                 <div class="text logo-text">
@@ -33,13 +33,6 @@
                         <a href="UserConfirmation.php">
                             <i class='bx bx-id-card icon' ></i>
                             <span class="text nav-text">Add User</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-contact icon' ></i>
-                            <span class="text nav-text">Contact Us</span>
                         </a>
                     </li>
 
